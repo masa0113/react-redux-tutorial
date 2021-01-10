@@ -1,25 +1,22 @@
 import React from 'react';
+import { Profiles } from '../model/profiles';
 
-const Person = (props) => {
+const Person = (props: Profiles) => {
   return <div>Hi, I'm {props.name}. I'm {props.age} years.</div>
 }
 
 export const User = () => {
-  const profiles = [
-    { name: "Taro", age: "10" },
-    { name: "Mayumi", age: "15" },
+  const profiles: Profiles[] = [
+    { name: "Taro", age: 10 },
+    { name: "Mayumi", age: 15 },
     { name: "Hanako" }
   ];
 
-  Person.defaultProps = {
-    age: 1
-  }
-
   return (
-    <React.Fragment>
+    <div>
       {profiles.map((v,i) => {
         return <Person name={v.name} age={v.age} key={i}></Person>
       })}
-    </React.Fragment>
+    </div>
   );
 };
